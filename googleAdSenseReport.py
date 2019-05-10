@@ -4,7 +4,7 @@ from oauth2client.client import flow_from_clientsecrets
 from pytz import timezone
 from oauth2client.file import Storage
 import datetime
-import simplejson as json
+import json
 import pprint
 pp = pprint.PrettyPrinter(indent=4)
 

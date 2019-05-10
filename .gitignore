@@ -1,3 +1,4 @@
 keys/
 credentials_file
 __pycache__
+*.pyc
