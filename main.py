@@ -23,4 +23,4 @@ if __name__ == '__main__':
     def googleAdSenseReport():
         return return_adsense_report()
 
-    app.run('127.0.0.1', 8000, debug=True)
+    app.run()
