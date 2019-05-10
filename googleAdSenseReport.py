@@ -2,10 +2,11 @@ from flask import Response
 from apiclient.discovery import build
 from oauth2client.client import flow_from_clientsecrets
 from pytz import timezone
+from oauth2client.file import Storage
 import datetime
 import simplejson as json
 import pprint
-from oauth2client.file import Storage
+pp = pprint.PrettyPrinter(indent=4)
 
 SCOPES = ['https://www.googleapis.com/auth/adsense.readonly']
 KEY_FILE_LOCATION = './keys/client_secrets.json'
@@ -17,9 +18,9 @@ def initialize_adsense_reporting():
                                    redirect_uri='http://localhost:8080/')
     # auth_uri = flow.step1_get_authorize_url()
     # print(auth_uri)
-    code = "4/RgEXIqCAnD89hrlDYBeZQBVgsIH8S1xlPp5_IzVdmwpJz_AP7Qvo_B_MoV08zei5kiYLeoFi-kkn3AKIM7wBVJg"
-    credentials = flow.step2_exchange(code)
-    storage.put(credentials)
+    # code = "4/RgEXIqCAnD89hrlDYBeZQBVgsIH8S1xlPp5_IzVdmwpJz_AP7Qvo_B_MoV08zei5kiYLeoFi-kkn3AKIM7wBVJg"
+    # credentials = flow.step2_exchange(code)
+    # storage.put(credentials)
     credentials = storage.get()
     adsense = build('adsense', 'v1.4', credentials=credentials)
     return adsense
@@ -54,10 +55,9 @@ def return_adsense_report():
         'total': totals[2] 
     }) 
     resp = Response()
-    resp.status_code = 500
+    resp.status_code = 200
     resp.set_data(json.dumps(result))
-    pp = pprint.PrettyPrinter(indent=4)
     pp.pprint(result)
     return resp
 
-initialize_adsense_reporting()
+# initialize_adsense_reporting()

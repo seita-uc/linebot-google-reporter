@@ -49,6 +49,6 @@ def return_analytics_report():
                     result.update({ dimension: value })
 
     resp = Response()
-    resp.status_code = 500
+    resp.status_code = 200
     resp.set_data(json.dumps(result))
     return resp
