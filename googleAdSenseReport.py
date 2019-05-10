@@ -17,9 +17,9 @@ def initialize_adsense_reporting():
                                    redirect_uri='http://localhost:8080/')
     # auth_uri = flow.step1_get_authorize_url()
     # print(auth_uri)
-    # code = ""
-    # credentials = flow.step2_exchange(code)
-    # storage.put(credentials)
+    code = "4/RgEXIqCAnD89hrlDYBeZQBVgsIH8S1xlPp5_IzVdmwpJz_AP7Qvo_B_MoV08zei5kiYLeoFi-kkn3AKIM7wBVJg"
+    credentials = flow.step2_exchange(code)
+    storage.put(credentials)
     credentials = storage.get()
     adsense = build('adsense', 'v1.4', credentials=credentials)
     return adsense
@@ -60,4 +60,4 @@ def return_adsense_report():
     pp.pprint(result)
     return resp
 
-return_adsense_report()
+initialize_adsense_reporting()
