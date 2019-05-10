@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from flask import Flask, Response
 import simplejson as json
 from googleAnalyticsReport import return_analytics_report
@@ -11,7 +13,7 @@ if __name__ == '__main__':
         resp = Response()
         resp.status_code = 200
         resp.set_data(json.dumps({
-            result: "かんなちゃんのgoogle関連サーバーです"
+            'result': 'かんなちゃんのgoogle関連サーバーです'
         }))
         return resp
 
