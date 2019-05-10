@@ -11,6 +11,7 @@ simplejson = "*"
 google-api-python-client = "*"
 oauth2client = "*"
 pytz = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
