@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 
 from flask import Flask, Response
 import json
@@ -11,6 +11,7 @@ app = Flask(__name__)
 def index():
     resp = Response()
     resp.status_code = 200
+    resp.content_type = 'text/html; charset=utf-8'
     resp.set_data(json.dumps({
         'result': 'かんなちゃんのgoogle関連サーバーです'
     }))
