@@ -16,8 +16,9 @@ def initialize_analytics_reporting():
         )
     
     else:
+        service_account = json.loads(os.environ['SERVICE_ACCOUNT'])
         credentials = ServiceAccountCredentials.from_json(
-            json.loads(os.environ['SERVICE_ACCOUNT']), SCOPES
+             service_account, SCOPES
         )
 
     analytics = build('analyticsreporting', 'v4', credentials=credentials)

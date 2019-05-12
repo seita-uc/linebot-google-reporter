@@ -13,7 +13,7 @@ def index():
     resp.status_code = 200
     resp.content_type = 'text/html; charset=utf-8'
     resp.set_data(json.dumps({
-        'result': 'かんなちゃんのgoogle関連サーバーです'
+        'result': u'This is a kannachan bot server'
     }))
     return resp
 
