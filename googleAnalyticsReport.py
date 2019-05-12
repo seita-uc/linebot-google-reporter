@@ -8,9 +8,17 @@ KEY_FILE_LOCATION = './keys/service_account.json'
 VIEW_ID = '187987801'
 
 def initialize_analytics_reporting():
-    credentials = ServiceAccountCredentials.from_json_keyfile_name(
-        KEY_FILE_LOCATION, SCOPES
-    )
+    credentials = None
+    if os.environ['PYTHON_ENV'] == 'test':
+        credentials = ServiceAccountCredentials.from_json_keyfile_name(
+            KEY_FILE_LOCATION, SCOPES
+        )
+    
+    else:
+        credentials = ServiceAccountCredentials.from_json(
+            json.loads(os.environ['SERVICE_ACCOUNT']), SCOPES
+        )
+
     analytics = build('analyticsreporting', 'v4', credentials=credentials)
     return analytics
 
