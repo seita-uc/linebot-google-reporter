@@ -2,6 +2,7 @@ from flask import Response
 from apiclient.discovery import build
 from oauth2client.service_account import ServiceAccountCredentials
 import json
+import os
 
 SCOPES = ['https://www.googleapis.com/auth/analytics.readonly']
 KEY_FILE_LOCATION = './keys/service_account.json'
