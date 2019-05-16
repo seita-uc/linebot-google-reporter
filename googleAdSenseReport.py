@@ -53,11 +53,11 @@ def get_report(adsense):
     now_pacific = datetime.datetime.now(timezone('US/Pacific'))
     today_pacific = now_pacific.strftime('%Y-%m-%d')
 
-    yesterday_pacific = now_pacific - datetime.timedelta(6)
-    yesterday_pacific = yesterday_pacific.strftime('%Y-%m-%d')
+    oneweekbefore_pacific = now_pacific - datetime.timedelta(6)
+    oneweekbefore_pacific = oneweekbefore_pacific.strftime('%Y-%m-%d')
 
     return adsense.reports().generate(
-        startDate = yesterday_pacific, 
+        startDate = oneweekbefore_pacific, 
         endDate = today_pacific,
         # filter=['AD_CLIENT_ID==' + ad_client_id],
         metric=['EARNINGS'],
