@@ -3,6 +3,7 @@
 from flask import Flask, Response
 import json
 from googleAnalyticsReport import return_analytics_report
+from googleAnalyticsPageViewReport import return_analytics_pageview_report
 from googleAdSenseReport import return_adsense_report
 
 app = Flask(__name__)
@@ -20,6 +21,10 @@ def index():
 @app.route('/googleAnalyticsReport', methods=['GET'])
 def googleAnalyticsReport():
     return return_analytics_report()
+
+@app.route('/googleAnalyticsPageViewReport', methods=['GET'])
+def googleAnalyticsPageViewReport():
+    return return_analytics_pageview_report()
 
 @app.route('/googleAdSenseReport', methods=['GET'])
 def googleAdSenseReport():

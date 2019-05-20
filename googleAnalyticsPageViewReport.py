@@ -32,13 +32,13 @@ def get_report(analytics):
                     'viewId': VIEW_ID,
                     'dateRanges': [{'startDate': '7daysAgo', 'endDate': 'today'}],
                     'metrics': [{'expression': 'ga:pageviews'}],
-                    'dimensions': [{'name': 'ga:city'}],
+                    'dimensions': [{'name': 'ga:pageTitle'}],
                     "orderBys":[{"fieldName": "ga:pageviews", "sortOrder": "DESCENDING"}]
                 }]
         }
     ).execute()
 
-def return_analytics_report():
+def return_analytics_pageview_report():
     analytics = initialize_analytics_reporting()
     response = get_report(analytics)
     result = {}
@@ -64,4 +64,5 @@ def return_analytics_report():
     print(json.dumps(json.loads(resp.get_data()), indent=4, sort_keys=True))
     return resp
 
-# return_analytics_report()
+# return_analytics_pageview_report()
+
